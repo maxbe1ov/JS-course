@@ -11,19 +11,27 @@ let appData = {
 	income: [],
 	savings: false
 };
-	
+
+
 	
 for (let i = 0; i < 2; i++) {
 	let a = prompt("Введите обязательную статью расходов в этом месяце","");
 	let b = prompt("Во сколько обойдется?","");
-
-	appData.expences[a] = b;
-	appData.budget -= b;
+	if ( (typeof(a)) !== 'string' || (typeof(a)) === null || b === null || a == '' || b =='') {
+		alert('Данные не корректны!');
+		--i;
+	}
+	else {
+		appData.expences[a] = b;
+		appData.budget -= b;
+	}
+	console.log(a);
+	console.log(b);
 	
 }
-console.log(appData.budget);
 
 appData.moneyPerDay = appData.budget / 30;
 alert("Ваш бюджет на 1 день :" + appData.moneyPerDay);
 
 console.log(appData);
+
